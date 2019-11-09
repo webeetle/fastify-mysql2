@@ -33,6 +33,9 @@
       "tap"
     ]
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "directories": {
     "test": "test"
   },
