@@ -1,0 +1,48 @@
+{
+  "name": "fastify-mysql2",
+  "version": "1.0.0",
+  "description": "Fastify Mysql connection plugin",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard && tap test/*.test.js",
+    "mariadb": "docker run -d -p 3306:3306 -e MYSQL_ALLOW_EMPTY_PASSWORD=yes --rm mariadb:10.1",
+    "mysql": "npm run mysql:8.0",
+    "mysql:5.7": "docker run -d -p 3306:3306 -e MYSQL_ALLOW_EMPTY_PASSWORD=yes --rm mysql:5.7",
+    "mysql:5.5": "docker run -d -p 3306:3306 -e MYSQL_ALLOW_EMPTY_PASSWORD=yes --rm mysql:5.5",
+    "mysql:8.0": "docker run -d -p 3306:3306 -e MYSQL_ALLOW_EMPTY_PASSWORD=yes --rm mysql:8.0"
+  },
+  "keywords": [
+    "fastify",
+    "mysql",
+    "database",
+    "connection",
+    "sql"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "fastify-plugin": "^1.5.0",
+    "mysql2": "^2.0.0"
+  },
+  "devDependencies": {
+    "fastify": "^2.3.0",
+    "standard": "^14.0.0",
+    "tap": "^12.7.0"
+  },
+  "greenkeeper": {
+    "ignore": [
+      "tap"
+    ]
+  },
+  "directories": {
+    "test": "test"
+  },
+  "author": "Davide D'Antonio",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidedantonio/fastify-mysql2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/davidedantonio/fastify-mysql2/issues"
+  },
+  "homepage": "https://github.com/davidedantonio/fastify-mysql2#readme"
+}
