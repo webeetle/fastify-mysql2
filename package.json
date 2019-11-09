@@ -28,14 +28,6 @@
     "standard": "^14.0.0",
     "tap": "^12.7.0"
   },
-  "greenkeeper": {
-    "ignore": [
-      "tap"
-    ]
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "directories": {
     "test": "test"
   },
