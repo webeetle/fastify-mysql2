@@ -1,5 +1,5 @@
 {
-  "name": "fastify-mysql2",
+  "name": "@davidedantonio/fastify-mysql2",
   "version": "1.0.1",
   "description": "Fastify Mysql connection plugin",
   "main": "index.js",
@@ -22,6 +22,9 @@
   "dependencies": {
     "fastify-plugin": "^1.5.0",
     "mysql2": "^2.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
   "devDependencies": {
     "fastify": "^2.3.0",
