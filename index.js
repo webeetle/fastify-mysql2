@@ -9,8 +9,10 @@ function fastifyMysql (fastify, options, next) {
   delete options.name
   const usePromise = options.promise
   delete options.promise
+  const keepAlive = options.keepAlive
+  delete options.keepAlive
 
-  _createConnection({ connectionType, options, usePromise }, (err, db) => {
+  _createConnection({ connectionType, options, usePromise, keepAlive }, (err, db) => {
     if (err) {
       return next(err)
     }
@@ -46,7 +48,7 @@ module.exports = fp(fastifyMysql, {
   name: 'fastify-mysql'
 })
 
-function _createConnection ({ connectionType, options, usePromise }, cb) {
+function _createConnection ({ connectionType, options, usePromise, keepAlive }, cb) {
   const { format, escape, escapeId } = require('mysql2')
   const mysql = usePromise ? require('mysql2/promise') : require('mysql2')
 
@@ -77,9 +79,9 @@ function _createConnection ({ connectionType, options, usePromise }, cb) {
 
     // execute a query each keepAlive milliseconds
     // this options as been added to prevent https://github.com/fastify/fastify-mysql/issues/26
-    if (options.keepAlive) {
+    if (keepAlive) {
       client.on('acquire', connection => {
-        setInterval(_ => connection.query('SELECT NOW()'), options.keepAlive)
+        setInterval(_ => connection.query('SELECT NOW()'), keepAlive)
       })
     }
   } else {
